@@ -8,20 +8,22 @@ import android.widget.Button;
 
 import com.example.projectmi03.Helper.SharedPref;
 
-public class MainActivity extends AppCompatActivity {
-    Button mbtnLogout;
+public class LoginActivity extends AppCompatActivity {
+    Button mBtnLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        mbtnLogout = findViewById(R.id.btn_logout);
+        mBtnLogin = findViewById(R.id.btn_login);
 
-        mbtnLogout.setOnClickListener(new View.OnClickListener() {
+        mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPref.getInstance(MainActivity.this).setLogin(false);
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                SharedPref.getInstance(LoginActivity.this).setLogin(true);
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
